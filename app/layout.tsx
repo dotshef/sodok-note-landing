@@ -1,21 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "소독노트 — 소독·방역업체용 방문 관리 SaaS",
   description:
-    "엑셀·카톡 대신 — 시설별 방문 기록, 현장 완료 체크, 미완료 추적까지. 소독·방역 현장에 맞춰 만든 운영 도구.",
+    "엑셀, 카톡 그만. 시설별 방문 기록부터 현장 완료 체크, 미완료 추적까지. 한 화면에서 끝내는 소독·방역 전용 SaaS.",
+  icons: {
+    icon: "/favicon.png",
+  },
   openGraph: {
     title: "소독노트 — 소독·방역업체용 방문 관리 SaaS",
     description:
@@ -26,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#1e6fd9",
+  themeColor: "#009098",
   width: "device-width",
   initialScale: 1,
 };
@@ -37,10 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="ko"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang="ko" className="h-full antialiased">
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <script
           type="application/ld+json"

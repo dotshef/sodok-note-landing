@@ -1,48 +1,48 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Logo } from "./logo";
 
 export function Nav() {
   return (
-    <header className="sticky top-0 z-40 border-b border-border/70 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5 md:px-8">
-        <Link href="/" className="flex items-center gap-2 text-foreground">
-          <Logo className="h-7 w-7" />
-          <span className="text-lg font-semibold tracking-tight">소독노트</span>
+    <header className="sticky top-0 z-40 border-b border-black/5 bg-white/90 backdrop-blur-md backdrop-saturate-150">
+      <div className="mx-auto flex w-full max-w-[1280px] items-center gap-7 px-5 py-3.5 md:px-8">
+        <Link href="/" className="flex items-center text-foreground">
+          <Image
+            src="/images/logo-banner.png"
+            alt="소독노트"
+            width={200}
+            height={36}
+            className="h-9 w-auto"
+            priority
+          />
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="ml-5 hidden flex-1 items-center gap-7 md:flex">
           <a
             href="#features"
-            className="text-base text-muted hover:text-foreground"
+            className="text-[17px] font-medium tracking-tight text-foreground transition-colors hover:text-[var(--color-brand-primary)]"
           >
             기능
           </a>
           <a
             href="#flow"
-            className="text-base text-muted hover:text-foreground"
+            className="text-[17px] font-medium tracking-tight text-foreground transition-colors hover:text-[var(--color-brand-primary)]"
           >
             사용 흐름
           </a>
           <a
-            href="#mobile"
-            className="text-base text-muted hover:text-foreground"
+            href="#contact"
+            className="text-[17px] font-medium tracking-tight text-foreground transition-colors hover:text-[var(--color-brand-primary)]"
           >
-            모바일
+            문의
           </a>
         </nav>
 
-        <div className="flex items-center gap-2 md:gap-3">
+        <div className="ml-auto flex items-center">
           <Link
-            href="/login"
-            className="hidden rounded-lg px-4 py-2 text-base text-muted hover:text-foreground md:inline-flex"
+            href="/console"
+            className="inline-flex items-center justify-center gap-1.5 rounded-md bg-[var(--color-brand-primary)] px-4 py-2 text-[17px] font-semibold text-white transition-colors hover:bg-[var(--color-brand-primary-active)] active:scale-[0.97]"
           >
-            로그인
-          </Link>
-          <Link
-            href="/signup"
-            className="inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-base font-medium text-primary-foreground shadow-sm transition hover:opacity-90"
-          >
-            무료 시작
+            콘솔로 이동
           </Link>
         </div>
       </div>

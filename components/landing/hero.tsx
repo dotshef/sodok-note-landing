@@ -1,85 +1,91 @@
+import Image from "next/image";
 import Link from "next/link";
-import { DashboardPreview } from "./mocks/dashboard-preview";
-import { MobileVisitPreview } from "./mocks/mobile-visit-preview";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-border">
+    <section className="relative overflow-hidden bg-white pt-20 text-center">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(60%_50%_at_30%_0%,var(--color-surface-soft)_0%,transparent_60%)]"
+        className="pointer-events-none absolute left-1/2 top-[-200px] h-[600px] w-[1100px] -translate-x-1/2"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(0, 144, 152, 0.08), transparent 60%)",
+        }}
       />
-      <div className="mx-auto grid w-full max-w-6xl gap-12 px-5 pt-16 pb-20 md:grid-cols-[1.05fr_1fr] md:gap-10 md:px-8 md:pt-24 md:pb-28 lg:gap-14">
-        <div className="flex flex-col justify-center">
-          <span className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-base text-muted">
-            <span className="h-2 w-2 rounded-full bg-accent" />
-            소독·방역 현장 운영 SaaS
-          </span>
 
-          <h1 className="mt-6 text-4xl font-semibold leading-[1.15] tracking-tight text-foreground md:text-5xl lg:text-6xl">
-            소독 방문 일정,
-            <br />
-            이제 한 곳에서 끝.
-          </h1>
-
-          <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted md:text-xl">
-            엑셀·카톡 대신 — 시설별 방문 기록, 현장 완료 체크, 미완료 추적까지.
-            소독·방역 현장에 맞춰 만든 운영 도구.
-          </p>
-
-          <div className="mt-8 flex flex-col gap-3 md:flex-row md:items-center">
-            <Link
-              href="/signup"
-              className="inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3.5 text-lg font-medium text-primary-foreground shadow-sm transition hover:opacity-90"
-            >
-              무료로 시작하기
-            </Link>
-            <a
-              href="#demo"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-card px-6 py-3.5 text-lg font-medium text-foreground transition hover:bg-surface-soft"
-            >
-              데모 보기
-              <span aria-hidden>→</span>
-            </a>
-          </div>
-
-          <p className="mt-6 inline-flex items-center gap-2 text-base text-muted">
-            <CheckIcon />
-            현장 직원도 1분이면 입력 완료
-          </p>
+      <div className="relative">
+        <div className="reveal mb-7 inline-flex items-center gap-2 rounded-full bg-[var(--color-brand-primary-soft)] px-5 py-2.5 text-[17px] font-semibold tracking-tight text-[var(--color-brand-primary)]">
+          <span className="h-2 w-2 rounded-full bg-[var(--color-brand-primary)]" />
+          소독·방역업체를 위한 올인원 운영 도구
         </div>
 
-        <div className="relative">
-          <div className="relative">
-            <DashboardPreview />
-            <div className="absolute -bottom-8 -left-6 hidden md:block lg:-bottom-10 lg:-left-10">
-              <MobileVisitPreview />
-            </div>
-            <div className="mt-4 md:hidden">
-              <MobileVisitPreview compact />
-            </div>
+        <h1 className="reveal reveal-delay-1 mx-auto mb-5 max-w-[980px] px-5 text-[44px] font-bold leading-[1.05] tracking-[-1.6px] text-balance text-foreground md:text-[60px] md:tracking-[-2.2px] lg:text-[72px] lg:tracking-[-2.5px]">
+          <span className="text-[#a39e98]">엑셀, 카톡</span> 그만.
+          <br />
+          소독 현장 운영은
+          <br />
+          <span className="text-[var(--color-brand-primary)]">소독노트</span>
+          로
+        </h1>
+
+        <p className="reveal reveal-delay-2 mx-auto mb-8 max-w-[680px] px-5 text-[18px] font-medium leading-[1.5] tracking-tight text-[var(--muted)] md:text-[20px]">
+          시설별 방문 기록부터 현장 완료 체크, 미완료 추적까지
+          <br className="hidden md:inline" />
+          한 화면에서 끝내는 소독·방역 전용 관리 프로그램
+        </p>
+
+        <div className="reveal reveal-delay-3 mb-5 inline-flex flex-wrap items-center justify-center gap-3 px-5">
+          <Link
+            href="/signup"
+            className="group inline-flex items-center justify-center gap-1.5 rounded-lg bg-[var(--color-brand-primary)] px-[22px] py-3 text-[16px] font-semibold text-white transition-colors hover:bg-[var(--color-brand-primary-active)] active:scale-[0.97]"
+          >
+            무료로 시작하기
+            <span
+              aria-hidden
+              className="inline-block transition-transform group-hover:translate-x-0.5"
+            >
+              →
+            </span>
+          </Link>
+          <a
+            href="#flow"
+            className="inline-flex items-center justify-center rounded-lg bg-black/5 px-[22px] py-3 text-[16px] font-semibold text-foreground transition-colors hover:bg-black/[0.08] active:scale-[0.97]"
+          >
+            사용 흐름 보기
+          </a>
+        </div>
+
+        <p className="reveal reveal-delay-4 mb-14 px-5 text-[14px] text-[var(--muted-foreground)]">
+          회원가입 30초 · 신용카드 불필요 ·{" "}
+          <b className="font-semibold text-[var(--muted)]">
+            지금은 전 기능 무료
+          </b>
+        </p>
+
+        <div className="reveal reveal-delay-5 relative mx-auto max-w-[1200px] px-6">
+          <div
+            className="overflow-hidden rounded-t-[14px] border border-b-0 border-black/[0.08] bg-white"
+            style={{ boxShadow: "var(--shadow-screenshot)" }}
+          >
+            <Image
+              src="/images/screen-dashboard.png"
+              alt="소독노트 대시보드 화면"
+              width={2400}
+              height={1500}
+              className="block h-auto w-full"
+              priority
+            />
           </div>
+          <div
+            aria-hidden
+            className="pointer-events-none absolute bottom-0 left-0 right-0 h-[100px]"
+            style={{
+              background:
+                "linear-gradient(180deg, transparent, var(--bg-alt) 90%)",
+            }}
+          />
         </div>
       </div>
     </section>
-  );
-}
-
-function CheckIcon() {
-  return (
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.4"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-      className="text-accent"
-    >
-      <path d="M20 6L9 17l-5-5" />
-    </svg>
   );
 }
