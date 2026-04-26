@@ -1,11 +1,19 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useContactModal } from "./contact-modal";
 
 export function Nav() {
+  const { openModal } = useContactModal();
+
   return (
     <header className="sticky top-0 z-40 border-b border-black/5 bg-white/90 backdrop-blur-md backdrop-saturate-150">
       <div className="mx-auto flex w-full max-w-[1280px] items-center gap-7 px-5 py-3.5 md:px-8">
-        <Link href="/" className="flex items-center text-foreground">
+        <Link
+          href="/"
+          className="flex cursor-default items-center text-foreground"
+        >
           <Image
             src="/images/logo-banner.png"
             alt="소독노트"
@@ -19,22 +27,23 @@ export function Nav() {
         <nav className="ml-5 hidden flex-1 items-center gap-7 md:flex">
           <a
             href="#features"
-            className="text-[17px] font-medium tracking-tight text-foreground transition-colors hover:text-[var(--color-brand-primary)]"
+            className="cursor-default text-[17px] font-medium tracking-tight text-foreground transition-colors hover:text-[var(--color-brand-primary)]"
           >
             기능
           </a>
           <a
             href="#flow"
-            className="text-[17px] font-medium tracking-tight text-foreground transition-colors hover:text-[var(--color-brand-primary)]"
+            className="cursor-default text-[17px] font-medium tracking-tight text-foreground transition-colors hover:text-[var(--color-brand-primary)]"
           >
             사용 흐름
           </a>
-          <a
-            href="#contact"
-            className="text-[17px] font-medium tracking-tight text-foreground transition-colors hover:text-[var(--color-brand-primary)]"
+          <button
+            type="button"
+            onClick={openModal}
+            className="cursor-default text-[17px] font-medium tracking-tight text-foreground transition-colors hover:text-[var(--color-brand-primary)]"
           >
             문의
-          </a>
+          </button>
         </nav>
 
         <div className="ml-auto flex items-center">
