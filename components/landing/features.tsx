@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { FadeUp } from "./animations/fade-up";
 
 type Feature = {
   num: number;
@@ -218,16 +219,22 @@ export function Features() {
   return (
     <section id="features" className="bg-white py-24 md:py-[120px]">
       <div className="mx-auto w-full max-w-[1200px] px-5 md:px-8">
-        <span className="reveal block text-center text-[22px] font-semibold uppercase tracking-[0.7px] text-[var(--color-brand-primary)]">
-          핵심 기능
-        </span>
-        <h2 className="reveal reveal-delay-1 mx-auto mt-3.5 max-w-[800px] text-balance text-center text-[34px] font-bold leading-[1.1] tracking-[-1.2px] text-foreground md:text-[42px] md:tracking-[-1.5px] lg:text-[48px] lg:tracking-[-1.6px]">
-          소독 현장에 필요한 모든 것, 한 화면에.
-        </h2>
-        <p className="reveal reveal-delay-2 mx-auto mt-3 max-w-[640px] text-balance text-center text-[18px] font-medium leading-[1.5] tracking-tight text-[var(--muted)] md:text-[19px]">
-          방문 일정·시설 이력·직원 배정·운영 현황까지. 따로 흩어진 도구 없이
-          하나로.
-        </p>
+        <FadeUp>
+          <span className="block text-center text-[22px] font-semibold uppercase tracking-[0.7px] text-[var(--color-brand-primary)]">
+            핵심 기능
+          </span>
+        </FadeUp>
+        <FadeUp delay={80}>
+          <h2 className="mx-auto mt-3.5 max-w-[800px] text-balance text-center text-[34px] font-bold leading-[1.1] tracking-[-1.2px] text-foreground md:text-[42px] md:tracking-[-1.5px] lg:text-[48px] lg:tracking-[-1.6px]">
+            소독 현장에 필요한 모든 것, 한 화면에.
+          </h2>
+        </FadeUp>
+        <FadeUp delay={160}>
+          <p className="mx-auto mt-3 max-w-[640px] text-balance text-center text-[18px] font-medium leading-[1.5] tracking-tight text-[var(--muted)] md:text-[19px]">
+            방문 일정·시설 이력·직원 배정·운영 현황까지. 따로 흩어진 도구 없이
+            하나로.
+          </p>
+        </FadeUp>
 
         <div className="mt-16 flex flex-col">
           {FEATURES.map((f, i) => (
@@ -252,7 +259,7 @@ function FeatureRow({
         reverse ? "md:grid-cols-[1.15fr_1fr]" : "md:grid-cols-[1fr_1.15fr]"
       }`}
     >
-      <div className={`reveal ${reverse ? "md:order-2" : ""}`}>
+      <FadeUp className={reverse ? "md:order-2" : ""}>
         <div className="mb-4 inline-flex items-center gap-2.5 text-[13px] font-semibold tracking-[0.3px] text-[var(--color-brand-primary)]">
           <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[var(--color-brand-primary-soft)] text-[13px] font-bold leading-none">
             {feature.num}
@@ -278,10 +285,10 @@ function FeatureRow({
             </li>
           ))}
         </ul>
-      </div>
-      <div className={`reveal reveal-delay-2 ${reverse ? "md:order-1" : ""}`}>
+      </FadeUp>
+      <FadeUp delay={160} className={reverse ? "md:order-1" : ""}>
         {feature.visual}
-      </div>
+      </FadeUp>
     </article>
   );
 }

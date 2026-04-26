@@ -36,32 +36,31 @@ export function ContactModalProvider({
   children: React.ReactNode;
 }) {
   const [open, setOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const firstFieldRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   const value = useMemo<ContactModalContextValue>(
     () => ({
       openModal: () => setOpen(true),
-      closeModal: () => setOpen(false),
+      closeModal: () => {
+        setOpen(false);
+        setStatus("idle");
+        setErrorMessage(null);
+      },
     }),
     []
   );
 
   useEffect(() => {
-    if (!open) {
-      setStatus("idle");
-      setErrorMessage(null);
-      return;
-    }
+    if (!open) return;
 
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && status !== "submitting") setOpen(false);
+      if (e.key === "Escape" && status !== "submitting") {
+        setOpen(false);
+        setStatus("idle");
+        setErrorMessage(null);
+      }
     };
     document.addEventListener("keydown", onKey);
 
@@ -80,6 +79,8 @@ export function ContactModalProvider({
   const close = useCallback(() => {
     if (status === "submitting") return;
     setOpen(false);
+    setStatus("idle");
+    setErrorMessage(null);
   }, [status]);
 
   async function submitForm(form: HTMLFormElement) {
@@ -121,7 +122,7 @@ export function ContactModalProvider({
   }
 
   const modal =
-    open && mounted
+    open && typeof window !== "undefined"
       ? createPortal(
           <div
             className="fixed inset-0 z-[200] flex items-end justify-center bg-black/50 px-4 py-6 backdrop-blur-sm sm:items-center"
@@ -139,7 +140,7 @@ export function ContactModalProvider({
                 type="button"
                 onClick={close}
                 aria-label="닫기"
-                className="absolute right-4 top-4 z-10 inline-flex h-9 w-9 items-center justify-center rounded-full text-[var(--muted)] transition-colors hover:bg-black/[0.05] hover:text-foreground"
+                className="absolute right-4 top-4 z-10 inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-full text-[var(--muted)] transition-colors hover:bg-black/[0.05] hover:text-foreground"
               >
                 <svg
                   width="18"
@@ -196,7 +197,7 @@ export function ContactModalProvider({
                   <button
                     type="button"
                     onClick={close}
-                    className="mt-4 w-full rounded-lg bg-[var(--color-brand-primary)] px-5 py-3 text-[15px] font-semibold text-white transition-colors hover:bg-[var(--color-brand-primary-active)]"
+                    className="mt-4 w-full cursor-pointer rounded-lg bg-[var(--color-brand-primary)] px-5 py-3 text-[15px] font-semibold text-white transition-colors hover:bg-[var(--color-brand-primary-active)]"
                   >
                     확인
                   </button>
@@ -276,7 +277,7 @@ export function ContactModalProvider({
                   <button
                     type="submit"
                     disabled={status === "submitting"}
-                    className="mt-5 inline-flex w-full items-center justify-center gap-1.5 rounded-lg bg-[var(--color-brand-primary)] px-5 py-3 text-[15px] font-semibold text-white transition-colors hover:bg-[var(--color-brand-primary-active)] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
+                    className="mt-5 inline-flex w-full cursor-pointer items-center justify-center gap-1.5 rounded-lg bg-[var(--color-brand-primary)] px-5 py-3 text-[15px] font-semibold text-white transition-colors hover:bg-[var(--color-brand-primary-active)] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     {status === "submitting" ? "전송 중..." : "문의 보내기"}
                   </button>

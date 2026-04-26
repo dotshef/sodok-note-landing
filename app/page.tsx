@@ -6,7 +6,6 @@ import { Footer } from "@/components/landing/footer";
 import { Hero } from "@/components/landing/hero";
 import { Nav } from "@/components/landing/nav";
 import { PainPoints } from "@/components/landing/pain-points";
-import { RevealObserver } from "@/components/landing/reveal-observer";
 
 export default function LandingPage() {
   return (
@@ -21,7 +20,6 @@ export default function LandingPage() {
           <Cta />
         </main>
         <Footer />
-        <RevealObserver />
       </div>
     </ContactModalProvider>
   );

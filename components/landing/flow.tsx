@@ -1,3 +1,5 @@
+import { FadeUp } from "./animations/fade-up";
+
 type Step = {
   num: number;
   title: string;
@@ -16,15 +18,21 @@ export function Flow() {
   return (
     <section id="flow" className="bg-[var(--bg-alt)] py-24 md:py-[120px]">
       <div className="mx-auto w-full max-w-[1200px] px-5 md:px-8">
-        <span className="reveal block text-center text-[22px] font-semibold uppercase tracking-[0.7px] text-[var(--color-brand-primary)]">
-          사용 흐름
-        </span>
-        <h2 className="reveal reveal-delay-1 mx-auto mt-3.5 max-w-[800px] text-balance text-center text-[34px] font-bold leading-[1.1] tracking-[-1.2px] text-foreground md:text-[42px] md:tracking-[-1.5px] lg:text-[48px] lg:tracking-[-1.6px]">
-          5분이면, 다음 방문부터 소독노트로.
-        </h2>
-        <p className="reveal reveal-delay-2 mx-auto mt-3 max-w-[640px] text-balance text-center text-[18px] font-medium leading-[1.5] tracking-tight text-[var(--muted)] md:text-[19px]">
-          설치 없이, 가입부터 첫 방문 등록까지 — 그대로 시작할 수 있습니다.
-        </p>
+        <FadeUp>
+          <span className="block text-center text-[22px] font-semibold uppercase tracking-[0.7px] text-[var(--color-brand-primary)]">
+            사용 흐름
+          </span>
+        </FadeUp>
+        <FadeUp delay={80}>
+          <h2 className="mx-auto mt-3.5 max-w-[800px] text-balance text-center text-[34px] font-bold leading-[1.1] tracking-[-1.2px] text-foreground md:text-[42px] md:tracking-[-1.5px] lg:text-[48px] lg:tracking-[-1.6px]">
+            5분이면, 다음 방문부터 소독노트로.
+          </h2>
+        </FadeUp>
+        <FadeUp delay={160}>
+          <p className="mx-auto mt-3 max-w-[640px] text-balance text-center text-[18px] font-medium leading-[1.5] tracking-tight text-[var(--muted)] md:text-[19px]">
+            설치 없이, 가입부터 첫 방문 등록까지 — 그대로 시작할 수 있습니다.
+          </p>
+        </FadeUp>
 
         <div className="relative mt-16 grid grid-cols-2 gap-8 md:grid-cols-5 md:gap-0">
           <span
@@ -36,9 +44,10 @@ export function Flow() {
             }}
           />
           {STEPS.map((s, i) => (
-            <div
+            <FadeUp
               key={s.num}
-              className={`reveal reveal-delay-${i + 1} relative z-10 flex flex-col items-center px-3 text-center`}
+              delay={(i + 1) * 80}
+              className="relative z-10 flex flex-col items-center px-3 text-center"
             >
               <div
                 className="mb-5 inline-flex h-16 w-16 items-center justify-center rounded-full border-2 border-[var(--color-brand-primary)] bg-white text-[22px] font-bold leading-none text-[var(--color-brand-primary)]"
@@ -52,7 +61,7 @@ export function Flow() {
               <p className="m-0 max-w-[200px] text-[14px] leading-[1.5] text-[var(--muted)]">
                 {s.desc}
               </p>
-            </div>
+            </FadeUp>
           ))}
         </div>
       </div>

@@ -10,14 +10,15 @@ export function Footer() {
             alt="소독노트"
             width={200}
             height={34}
-            className="h-[34px] w-auto"
+            className="h-[34px]"
+            style={{ width: "auto" }}
           />
-          <p className="mt-3 max-w-[420px] break-keep text-base leading-[1.6] text-[var(--muted)]">
+          <p className="mt-3 max-w-[420px] break-keep text-sm leading-[1.6] text-[var(--muted)]">
             소독·방역 현장의 운영을 한 화면에서 끝내는 관리 프로그램.
           </p>
         </div>
 
-        <dl className="mx-auto mt-10 grid w-fit gap-x-8 gap-y-2 text-left text-[13px] leading-[1.6] text-[var(--muted)] sm:grid-cols-[auto_auto]">
+        <dl className="mx-auto mt-10 grid w-fit gap-x-8 gap-y-2 text-left text-sm leading-[1.6] text-[var(--muted)] sm:grid-cols-[auto_auto]">
           <dt className="font-semibold text-foreground">상호</dt>
           <dd className="m-0">닷셰프</dd>
           <dt className="font-semibold text-foreground">대표</dt>
@@ -28,7 +29,7 @@ export function Footer() {
           <dd className="m-0">
             <a
               href="mailto:contact@dotshef.com"
-              className="text-[var(--muted)] no-underline transition-colors hover:text-foreground"
+              className="cursor-pointer text-[var(--muted)] no-underline transition-colors hover:text-foreground"
             >
               contact@dotshef.com
             </a>
@@ -39,7 +40,7 @@ export function Footer() {
           </dd>
         </dl>
 
-        <div className="mt-10 border-t border-black/[0.06] pt-6 text-[13px] text-[var(--muted-foreground)]">
+        <div className="mt-10 border-t border-black/[0.06] pt-6 text-sm text-[var(--muted-foreground)]">
           © 2026 소독노트. All rights reserved.
         </div>
       </div>
