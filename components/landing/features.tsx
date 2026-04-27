@@ -158,7 +158,7 @@ const FEATURES: Feature[] = [
       "날짜·상태·담당자 필터",
       "방문 일자 이전 완료 처리 차단",
     ],
-    visual: <Screenshot src="/images/screen-visits.png" alt="방문 관리 화면" />,
+    visual: <Screenshot src="/images/visit-screen.png" alt="방문 관리 화면" />,
   },
   {
     num: 2,
@@ -175,7 +175,7 @@ const FEATURES: Feature[] = [
       "예정·완료·미완료 색상 구분",
       "날짜 클릭 → 상세 일정 펼침",
     ],
-    visual: <Screenshot src="/images/screen-calendar.png" alt="캘린더 화면" />,
+    visual: <Screenshot src="/images/calendar-screen.png" alt="캘린더 화면" />,
   },
   {
     num: 3,
@@ -193,7 +193,7 @@ const FEATURES: Feature[] = [
       "본인 방문만 노출되는 현장용 뷰",
       "미완료 알림 자동 발송",
     ],
-    visual: <Screenshot src="/images/screen-login.png" alt="로그인 화면" />,
+    visual: <Screenshot src="/images/staff-screen.png" alt="직원관리 화면" />,
   },
   {
     num: 4,
@@ -211,7 +211,7 @@ const FEATURES: Feature[] = [
       "주간 예정·완료·미완료 차트",
       "카드 클릭 → 필터링된 목록 즉시 이동",
     ],
-    visual: <StatsMock />,
+    visual: <Screenshot src="/images/dashboard-screen.png" alt="대시보드 화면" />,
   },
 ];
 
