@@ -18,10 +18,9 @@ export function Nav() {
             <Image
               src="/images/logo-banner.png"
               alt="소독노트"
-              width={200}
-              height={36}
-              className="h-9"
-              style={{ width: "auto" }}
+              width={300}
+              height={118}
+              style={{ height: 36, width: "auto" }}
               priority
             />
           </Link>

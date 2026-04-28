@@ -8,10 +8,9 @@ export function Footer() {
           <Image
             src="/images/logo-banner.png"
             alt="소독노트"
-            width={240}
-            height={40}
-            className="h-[40px]"
-            style={{ width: "auto" }}
+            width={300}
+            height={118}
+            style={{ height: 40, width: "auto" }}
           />
           <p className="mt-3 max-w-[420px] break-keep text-base leading-[1.6] text-[var(--muted)]">
             소독·방역 현장의 운영을 한 화면에서 끝내는 관리 프로그램.
