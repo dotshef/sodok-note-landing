@@ -38,7 +38,7 @@ export function Cta() {
         </FadeUp>
         <FadeUp delay={160} className="flex flex-wrap justify-center gap-3">
           <a
-            href="https://app.sodoknote.com"
+            href="https://app.sodoknote.com/signup"
             className="group inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-lg bg-white px-[22px] py-3 text-[16px] font-semibold text-[var(--color-brand-primary)] transition-colors hover:bg-white/90 active:scale-[0.97]"
           >
             무료로 시작하기

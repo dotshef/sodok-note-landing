@@ -47,7 +47,7 @@ export function Hero() {
               className="mb-7 flex flex-wrap items-center gap-3"
             >
               <a
-                href="https://app.sodoknote.com"
+                href="https://app.sodoknote.com/signup"
                 className="group inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-lg bg-[var(--color-brand-primary)] px-[22px] py-3 text-[16px] font-semibold text-white transition-colors hover:bg-[var(--color-brand-primary-active)] active:scale-[0.97]"
               >
                 무료로 시작하기
