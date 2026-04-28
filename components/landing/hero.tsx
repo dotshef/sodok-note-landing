@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { FadeUp } from "./animations/fade-up";
 
 export function Hero() {
@@ -43,8 +42,8 @@ export function Hero() {
           delay={240}
           className="mb-5 inline-flex flex-wrap items-center justify-center gap-3 px-5"
         >
-          <Link
-            href="/signup"
+          <a
+            href="https://app.sodoknote.com"
             className="group inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-lg bg-[var(--color-brand-primary)] px-[22px] py-3 text-[16px] font-semibold text-white transition-colors hover:bg-[var(--color-brand-primary-active)] active:scale-[0.97]"
           >
             무료로 시작하기
@@ -54,7 +53,7 @@ export function Hero() {
             >
               →
             </span>
-          </Link>
+          </a>
           <a
             href="#flow"
             className="inline-flex cursor-pointer items-center justify-center rounded-lg bg-black/5 px-[22px] py-3 text-[16px] font-semibold text-foreground transition-colors hover:bg-black/[0.08] active:scale-[0.97]"
@@ -78,8 +77,8 @@ export function Hero() {
             style={{ boxShadow: "var(--shadow-screenshot)" }}
           >
             <Image
-              src="/images/screen-dashboard.png"
-              alt="소독노트 대시보드 화면"
+              src="/images/hero.png"
+              alt="Hero"
               width={2400}
               height={1500}
               className="block h-auto w-full"

@@ -44,104 +44,6 @@ function Screenshot({ src, alt }: { src: string; alt: string }) {
   );
 }
 
-function StatsMock() {
-  type Stat = {
-    label: string;
-    value: string;
-    valueColor?: string;
-    iconBg: string;
-    iconFg: string;
-    icon: React.ReactNode;
-  };
-  const stats: Stat[] = [
-    {
-      label: "오늘 방문 일정",
-      value: "0건",
-      iconBg: "bg-[var(--color-brand-primary-soft)]",
-      iconFg: "text-[var(--color-brand-primary)]",
-      icon: (
-        <>
-          <rect x="3" y="4" width="18" height="18" rx="2" />
-          <path d="M16 2v4M8 2v4M3 10h18" />
-        </>
-      ),
-    },
-    {
-      label: "이번 주 일정",
-      value: "4건",
-      iconBg: "bg-[var(--color-brand-primary-soft)]",
-      iconFg: "text-[var(--color-brand-primary)]",
-      icon: (
-        <>
-          <rect x="3" y="4" width="18" height="18" rx="2" />
-          <path d="M16 2v4M8 2v4M3 10h18M8 14h2M14 14h2M8 18h2M14 18h2" />
-        </>
-      ),
-    },
-    {
-      label: "미완료 건",
-      value: "3건",
-      valueColor: "text-[#dd5b00]",
-      iconBg: "bg-[#fef0ef]",
-      iconFg: "text-[#dd5b00]",
-      icon: (
-        <>
-          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
-          <path d="M12 9v4M12 17h.01" />
-        </>
-      ),
-    },
-    {
-      label: "이번 달 완료",
-      value: "2건",
-      iconBg: "bg-[#ebf8ee]",
-      iconFg: "text-[#1aae39]",
-      icon: (
-        <>
-          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-          <path d="M22 4L12 14.01l-3-3" />
-        </>
-      ),
-    },
-  ];
-
-  return (
-    <div className="grid grid-cols-2 gap-3 rounded-xl border border-black/[0.06] bg-[var(--bg-alt)] p-5">
-      {stats.map((s) => (
-        <div
-          key={s.label}
-          className="rounded-[10px] border border-black/[0.06] bg-white p-4"
-        >
-          <div
-            className={`mb-3 inline-flex h-7 w-7 items-center justify-center rounded-lg ${s.iconBg} ${s.iconFg}`}
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-4 w-4"
-              aria-hidden
-            >
-              {s.icon}
-            </svg>
-          </div>
-          <div className="mb-1.5 text-[13px] font-medium text-[var(--muted)]">
-            {s.label}
-          </div>
-          <div
-            className={`text-[28px] font-bold leading-none tracking-[-0.6px] ${s.valueColor ?? "text-foreground"}`}
-          >
-            {s.value}
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
 const FEATURES: Feature[] = [
   {
     num: 1,
@@ -156,7 +58,7 @@ const FEATURES: Feature[] = [
     bullets: [
       "방문 코드 자동 채번",
       "날짜·상태·담당자 필터",
-      "방문 일자 이전 완료 처리 차단",
+      "담당자가 방문 완료 처리 가능",
     ],
     visual: <Screenshot src="/images/visit-screen.png" alt="방문 관리 화면" />,
   },
@@ -169,10 +71,10 @@ const FEATURES: Feature[] = [
         <br />한 화면에 펼쳐집니다.
       </>
     ),
-    desc: "일·주·월 단위로 모든 방문을 한눈에. 상태별 색상으로 빠뜨린 일정을 즉시 확인하세요.",
+    desc: "월 단위 모든 방문을 한눈에. 상태별 색상으로 빠뜨린 일정을 즉시 확인하세요.",
     bullets: [
-      "월간·주간 캘린더 뷰",
-      "예정·완료·미완료 색상 구분",
+      "월간 캘린더 뷰",
+      "예정/완료/미완료 색상 구분",
       "날짜 클릭 → 상세 일정 펼침",
     ],
     visual: <Screenshot src="/images/calendar-screen.png" alt="캘린더 화면" />,
@@ -191,7 +93,7 @@ const FEATURES: Feature[] = [
     bullets: [
       "이메일 1줄로 직원 초대",
       "본인 방문만 노출되는 현장용 뷰",
-      "미완료 알림 자동 발송",
+      "미완료 일정 알림",
     ],
     visual: <Screenshot src="/images/staff-screen.png" alt="직원관리 화면" />,
   },
