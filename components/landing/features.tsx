@@ -167,7 +167,7 @@ const FEATURES: Feature[] = [
     eyebrow: "푸시 알림",
     title: (
       <>
-        배정 즉시, 전날 자동.
+        배정 알림 및 일정 리마인드 알림
         <br />
         놓치는 일정이 사라집니다.
       </>
