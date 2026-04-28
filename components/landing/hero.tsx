@@ -19,7 +19,7 @@ export function Hero() {
           <div className="text-left">
             <FadeUp className="mb-6 inline-flex items-center gap-2 rounded-full bg-[var(--color-brand-primary-soft)] px-4 py-2 text-[15px] font-semibold tracking-tight text-[var(--color-brand-primary)] md:text-[16px]">
               <span className="h-2 w-2 rounded-full bg-[var(--color-brand-primary)]" />
-              소독·방역 전용 SaaS
+              소독 방역 업체 전용 SaaS
             </FadeUp>
 
             <FadeUp delay={80}>
@@ -38,7 +38,7 @@ export function Hero() {
             <FadeUp delay={160}>
               <p className="mb-9 max-w-[520px] text-[17px] font-medium leading-[1.55] tracking-tight text-[var(--muted)] md:text-[19px]">
                 시설별 방문 기록부터 현장 완료 체크, 미완료 추적까지 한 화면에서
-                끝내는 소독·방역 전용 운영 도구입니다.
+                끝내는 소독 방역 업체 전용 운영 도구입니다.
               </p>
             </FadeUp>
 

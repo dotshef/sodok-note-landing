@@ -25,12 +25,12 @@ export function Flow() {
         </FadeUp>
         <FadeUp delay={80}>
           <h2 className="mx-auto mt-3.5 max-w-[800px] text-balance text-center text-[34px] font-bold leading-[1.1] tracking-[-1.2px] text-foreground md:text-[42px] md:tracking-[-1.5px] lg:text-[48px] lg:tracking-[-1.6px]">
-            5분이면, 다음 방문부터 소독노트로.
+            5분이면, 다음 방문부터 소독노트로
           </h2>
         </FadeUp>
         <FadeUp delay={160}>
           <p className="mx-auto mt-3 max-w-[640px] text-balance text-center text-[18px] font-medium leading-[1.5] tracking-tight text-[var(--muted)] md:text-[19px]">
-            설치 없이, 가입부터 첫 방문 등록까지 — 그대로 시작할 수 있습니다.
+            설치 없이, 가입부터 첫 방문 등록까지 한 번에 사용할 수 있습니다.
           </p>
         </FadeUp>
 

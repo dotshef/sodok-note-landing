@@ -62,11 +62,11 @@ export function PainPoints() {
               >
                 <p className="m-0 text-balance text-[20px] font-bold leading-[1.35] tracking-[-0.4px] text-foreground md:text-[22px]">
                   <span className="font-normal text-[var(--color-brand-primary)]">
-                    「
+                    “
                   </span>
                   {p.question}
                   <span className="font-normal text-[var(--color-brand-primary)]">
-                    」
+                    ”
                   </span>
                 </p>
                 <div className="flex items-start gap-2.5 border-t border-dashed border-black/10 pt-[18px]">

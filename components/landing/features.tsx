@@ -44,6 +44,25 @@ function Screenshot({ src, alt }: { src: string; alt: string }) {
   );
 }
 
+function MobileShot({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="mx-auto w-full max-w-[280px] md:max-w-[320px]">
+      <div
+        className="overflow-hidden rounded-[20px] border border-black/[0.06] bg-white"
+        style={{ boxShadow: "var(--shadow-feature)" }}
+      >
+        <Image
+          src={src}
+          alt={alt}
+          width={1080}
+          height={2280}
+          className="block h-auto w-full"
+        />
+      </div>
+    </div>
+  );
+}
+
 const FEATURES: Feature[] = [
   {
     num: 1,
@@ -57,7 +76,7 @@ const FEATURES: Feature[] = [
     desc: "캘린더와 리스트, 두 가지 뷰에서 모든 방문 일정을 관리하세요. 방문 코드는 자동으로 채번됩니다.",
     bullets: [
       "방문 코드 자동 채번",
-      "날짜·상태·담당자 필터",
+      "날짜, 상태, 담당자 필터",
       "담당자가 방문 완료 처리 가능",
     ],
     visual: <Screenshot src="/images/visit-screen.png" alt="방문 관리 화면" />,
@@ -92,28 +111,70 @@ const FEATURES: Feature[] = [
     desc: "관리자/직원 권한이 자동으로 분리됩니다. 현장 직원은 본인이 배정된 방문만 깔끔하게 봅니다.",
     bullets: [
       "이메일 1줄로 직원 초대",
-      "본인 방문만 노출되는 현장용 뷰",
-      "미완료 일정 알림",
+      "직원에게는 본인 방문만 노출",
+      "관리자는 모든 방문 일정 관리 및 소독증명서 생성",
     ],
     visual: <Screenshot src="/images/staff-screen.png" alt="직원관리 화면" />,
   },
   {
     num: 4,
-    eyebrow: "운영 대시보드",
+    eyebrow: "푸시 알림",
     title: (
       <>
-        오늘·이번 주·이번 달,
+        배정 즉시, 전날 자동.
         <br />
-        숫자로 보는 운영 현황.
+        놓치는 일정이 사라집니다.
       </>
     ),
-    desc: "4종 카드와 주간 차트로 사업장 전체 흐름을 파악하세요. 카드 클릭 한 번으로 필터링된 목록까지.",
+    desc: "방문이 배정되는 순간 담당 직원에게 푸시 알림이 갑니다. 전날 저녁에는 내일 일정 알림까지 자동으로.",
     bullets: [
-      "오늘/이번 주/미완료/이번 달 완료",
-      "주간 예정·완료·미완료 차트",
-      "카드 클릭 → 필터링된 목록 즉시 이동",
+      "방문 배정 시 해당 직원에게 알림 전송",
+      "전날 저녁 내일 일정 자동 알림",
+      "기기별 알림 권한 등록, 해제 관리 가능",
     ],
-    visual: <Screenshot src="/images/dashboard-screen.png" alt="대시보드 화면" />,
+    visual: (
+      <MobileShot src="/images/notification-mobile.jpg" alt="푸시 알림 화면" />
+    ),
+  },
+  {
+    num: 5,
+    eyebrow: "현장 완료 처리",
+    title: (
+      <>
+        현장에서 바로,
+        <br />
+        소독 완료 처리합니다.
+      </>
+    ),
+    desc: "소독 방법, 사용 약품, 특이사항을 모바일에서 입력하고 즉시 완료 처리. 사무실 복귀 후 정리할 필요가 없습니다.",
+    bullets: [
+      "소독 방법, 사용 약품 모바일 입력",
+      "최근 사용 항목을 원클릭으로 추가",
+      "현장에서 직원이 즉시 완료 처리 가능",
+    ],
+    visual: (
+      <MobileShot src="/images/complete-mobile.jpg" alt="현장 완료 화면" />
+    ),
+  },
+  {
+    num: 6,
+    eyebrow: "소독증명서 발급",
+    title: (
+      <>
+        방문 기록 그대로,
+        <br />
+        증명서가 완성됩니다.
+      </>
+    ),
+    desc: "입력한 방문 정보가 그대로 소독증명서가 됩니다. 별도 양식 작성 없이 PDF를 즉시 고객에게 전달하세요.",
+    bullets: [
+      "방문 기록 기반 자동 생성",
+      "HWPX, PDF 다운로드 지원",
+      "증명서 생성 이후 고객 시설로 발송 가능",
+    ],
+    visual: (
+      <Screenshot src="/images/certificate-screen.png" alt="소독증명서 화면" />
+    ),
   },
 ];
 
@@ -162,8 +223,8 @@ function FeatureRow({
       }`}
     >
       <FadeUp className={reverse ? "md:order-2" : ""}>
-        <div className="mb-4 inline-flex items-center gap-2.5 text-[13px] font-semibold tracking-[0.3px] text-[var(--color-brand-primary)]">
-          <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[var(--color-brand-primary-soft)] text-[13px] font-bold leading-none">
+        <div className="mb-4 inline-flex items-center gap-2.5 text-base font-semibold tracking-[0.3px] text-[var(--color-brand-primary)]">
+          <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[var(--color-brand-primary-soft)] text-[15px] font-bold leading-none">
             {feature.num}
           </span>
           {feature.eyebrow}
