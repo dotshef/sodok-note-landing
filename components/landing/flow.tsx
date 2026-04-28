@@ -8,7 +8,7 @@ type Step = {
 
 const STEPS: Step[] = [
   { num: 1, title: "가입", desc: "이메일로 30초 가입." },
-  { num: 2, title: "시설 등록", desc: "거래처 정보 한 번만 입력." },
+  { num: 2, title: "고객 시설 등록", desc: "거래처 정보 한 번만 입력." },
   { num: 3, title: "방문 등록", desc: "캘린더에 일정 + 직원 배정." },
   { num: 4, title: "현장 완료", desc: "직원이 모바일에서 체크." },
   { num: 5, title: "현황 확인", desc: "대시보드에서 한눈에." },

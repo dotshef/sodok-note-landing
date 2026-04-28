@@ -162,7 +162,7 @@ export function ContactModalProvider({
                   id="contact-modal-title"
                   className="m-0 text-[22px] font-bold leading-[1.3] tracking-[-0.5px] text-foreground"
                 >
-                  1:1 문의하기
+                  문의하기
                 </h2>
                 <p className="m-0 mt-1.5 text-[14px] leading-[1.55] text-[var(--muted)]">
                   보내주시면 빠르게 답변드리겠습니다.

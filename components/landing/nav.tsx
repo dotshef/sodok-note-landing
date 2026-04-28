@@ -38,16 +38,16 @@ export function Nav() {
           >
             사용 흐름
           </a>
+        </nav>
+
+        <div className="ml-auto flex items-center gap-2">
           <button
             type="button"
             onClick={openModal}
-            className="cursor-pointer text-[17px] font-medium tracking-tight text-foreground transition-colors hover:text-[var(--color-brand-primary)]"
+            className="inline-flex cursor-pointer items-center justify-center rounded-md border border-black/10 bg-white px-4 py-2 text-[17px] font-semibold text-foreground transition-colors hover:bg-black/[0.04] active:scale-[0.97]"
           >
-            문의
+            문의하기
           </button>
-        </nav>
-
-        <div className="ml-auto flex items-center">
           <a
             href="https://app.sodoknote.com"
             className="inline-flex items-center justify-center gap-1.5 rounded-md bg-[var(--color-brand-primary)] px-4 py-2 text-[17px] font-semibold text-white transition-colors hover:bg-[var(--color-brand-primary-active)] active:scale-[0.97]"

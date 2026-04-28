@@ -33,7 +33,7 @@ export function Cta() {
         </FadeUp>
         <FadeUp delay={80}>
           <p className="m-0 mb-9 text-[16px] font-medium leading-[1.55] tracking-tight text-white/85 md:text-[18px]">
-            지금은 전 기능 무료. 신용카드도, 도입 미팅도 필요 없습니다.
+            베타 오픈이므로 전 기능 무료입니다. 신용카드도, 도입 미팅도 필요 없습니다.
           </p>
         </FadeUp>
         <FadeUp delay={160} className="flex flex-wrap justify-center gap-3">
@@ -41,7 +41,7 @@ export function Cta() {
             href="https://app.sodoknote.com"
             className="group inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-lg bg-white px-[22px] py-3 text-[16px] font-semibold text-[var(--color-brand-primary)] transition-colors hover:bg-white/90 active:scale-[0.97]"
           >
-            콘솔로 이동
+            무료로 시작하기
             <span
               aria-hidden
               className="inline-block transition-transform group-hover:translate-x-0.5"
@@ -54,7 +54,7 @@ export function Cta() {
             onClick={openModal}
             className="inline-flex cursor-pointer items-center justify-center rounded-lg border border-white bg-transparent px-[22px] py-3 text-[16px] font-semibold text-white transition-colors hover:bg-white hover:text-[var(--color-brand-primary)] active:scale-[0.97]"
           >
-            1:1 문의하기
+            문의하기
           </button>
         </FadeUp>
       </div>

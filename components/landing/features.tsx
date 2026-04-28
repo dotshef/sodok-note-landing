@@ -84,7 +84,7 @@ const FEATURES: Feature[] = [
     eyebrow: "직원 배정 & 권한",
     title: (
       <>
-        사장님은 전체,
+        관리자는 전체,
         <br />
         직원은 본인 일정만.
       </>

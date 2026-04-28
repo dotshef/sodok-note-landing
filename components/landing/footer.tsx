@@ -8,12 +8,12 @@ export function Footer() {
           <Image
             src="/images/logo-banner.png"
             alt="소독노트"
-            width={200}
-            height={34}
-            className="h-[34px]"
+            width={240}
+            height={40}
+            className="h-[40px]"
             style={{ width: "auto" }}
           />
-          <p className="mt-3 max-w-[420px] break-keep text-sm leading-[1.6] text-[var(--muted)]">
+          <p className="mt-3 max-w-[420px] break-keep text-base leading-[1.6] text-[var(--muted)]">
             소독·방역 현장의 운영을 한 화면에서 끝내는 관리 프로그램.
           </p>
         </div>

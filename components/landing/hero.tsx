@@ -58,12 +58,6 @@ export function Hero() {
                   →
                 </span>
               </a>
-              <a
-                href="#flow"
-                className="inline-flex cursor-pointer items-center justify-center rounded-lg bg-black/5 px-[22px] py-3 text-[16px] font-semibold text-foreground transition-colors hover:bg-black/[0.08] active:scale-[0.97]"
-              >
-                사용 흐름 보기
-              </a>
             </FadeUp>
 
             <FadeUp delay={320}>
@@ -71,7 +65,7 @@ export function Hero() {
                 {[
                   "회원가입 30초",
                   "신용카드 불필요",
-                  "지금은 전 기능 무료",
+                  "베타 테스트 기간 전 기능 무료",
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-2.5">
                     <span
