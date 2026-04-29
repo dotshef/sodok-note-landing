@@ -1,14 +1,6 @@
-"use client";
-
-import Image from "next/image";
-import { useEffect, useState } from "react";
 import { FadeUp } from "./animations/fade-up";
-
-type Visual = {
-  type: "desktop" | "mobile";
-  src: string;
-  alt: string;
-};
+import { FeatureScreenshot } from "./feature-screenshot";
+import { LightboxProvider, type Visual } from "./lightbox";
 
 type Feature = {
   num: number;
@@ -33,67 +25,6 @@ function Check() {
     >
       <path d="M2.5 6.5l2.5 2.5 4.5-5" />
     </svg>
-  );
-}
-
-function Screenshot({
-  src,
-  alt,
-  onClick,
-  priority = false,
-}: {
-  src: string;
-  alt: string;
-  onClick: () => void;
-  priority?: boolean;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-label={`${alt} 크게 보기`}
-      className="group block w-full cursor-zoom-in overflow-hidden rounded-xl border border-black/[0.06] bg-white p-0 transition-transform hover:scale-[1.01]"
-      style={{ boxShadow: "var(--shadow-feature)" }}
-    >
-      <Image
-        src={src}
-        alt={alt}
-        width={2400}
-        height={1500}
-        priority={priority}
-        className="block h-auto w-full"
-      />
-    </button>
-  );
-}
-
-function MobileShot({
-  src,
-  alt,
-  onClick,
-}: {
-  src: string;
-  alt: string;
-  onClick: () => void;
-}) {
-  return (
-    <div className="mx-auto w-full max-w-[280px] md:max-w-[320px]">
-      <button
-        type="button"
-        onClick={onClick}
-        aria-label={`${alt} 크게 보기`}
-        className="block w-full cursor-zoom-in overflow-hidden rounded-[20px] border border-black/[0.06] bg-white p-0 transition-transform hover:scale-[1.01]"
-        style={{ boxShadow: "var(--shadow-feature)" }}
-      >
-        <Image
-          src={src}
-          alt={alt}
-          width={1080}
-          height={2280}
-          className="block h-auto w-full"
-        />
-      </button>
-    </div>
   );
 }
 
@@ -231,59 +162,40 @@ const FEATURES: Feature[] = [
 ];
 
 export function Features() {
-  const [openVisual, setOpenVisual] = useState<Visual | null>(null);
-
-  useEffect(() => {
-    if (!openVisual) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpenVisual(null);
-    };
-    document.addEventListener("keydown", onKey);
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prevOverflow;
-    };
-  }, [openVisual]);
-
   return (
-    <section id="features" className="bg-white py-24 md:py-[120px]">
-      <div className="mx-auto w-full max-w-[1200px] px-5 md:px-8">
-        <FadeUp>
-          <span className="block text-center text-[22px] font-semibold uppercase tracking-[0.7px] text-[var(--color-brand-primary)]">
-            핵심 기능
-          </span>
-        </FadeUp>
-        <FadeUp delay={80}>
-          <h2 className="mx-auto mt-3.5 max-w-[800px] text-balance text-center text-[34px] font-bold leading-[1.1] tracking-[-1.2px] text-foreground md:text-[42px] md:tracking-[-1.5px] lg:text-[48px] lg:tracking-[-1.6px]">
-            소독 현장에 필요한 모든 것, 한 화면에.
-          </h2>
-        </FadeUp>
-        <FadeUp delay={160}>
-          <p className="mx-auto mt-3 max-w-[640px] text-balance text-center text-[18px] font-medium leading-[1.5] tracking-tight text-[var(--muted)] md:text-[19px]">
-            방문 일정·시설 이력·직원 배정·운영 현황까지. 따로 흩어진 도구 없이
-            하나로.
-          </p>
-        </FadeUp>
+    <LightboxProvider>
+      <section id="features" className="bg-white py-24 md:py-[120px]">
+        <div className="mx-auto w-full max-w-[1200px] px-5 md:px-8">
+          <FadeUp>
+            <span className="block text-center text-[22px] font-semibold uppercase tracking-[0.7px] text-[var(--color-brand-primary)]">
+              핵심 기능
+            </span>
+          </FadeUp>
+          <FadeUp delay={80}>
+            <h2 className="mx-auto mt-3.5 max-w-[800px] text-balance text-center text-[34px] font-bold leading-[1.1] tracking-[-1.2px] text-foreground md:text-[42px] md:tracking-[-1.5px] lg:text-[48px] lg:tracking-[-1.6px]">
+              소독 현장에 필요한 모든 것, 한 화면에.
+            </h2>
+          </FadeUp>
+          <FadeUp delay={160}>
+            <p className="mx-auto mt-3 max-w-[640px] text-balance text-center text-[18px] font-medium leading-[1.5] tracking-tight text-[var(--muted)] md:text-[19px]">
+              방문 일정·시설 이력·직원 배정·운영 현황까지. 따로 흩어진 도구 없이
+              하나로.
+            </p>
+          </FadeUp>
 
-        <div className="mt-16 flex flex-col">
-          {FEATURES.map((f, i) => (
-            <FeatureRow
-              key={f.num}
-              feature={f}
-              reverse={i % 2 === 1}
-              priority={i === 0}
-              onOpen={() => setOpenVisual(f.visual)}
-            />
-          ))}
+          <div className="mt-16 flex flex-col">
+            {FEATURES.map((f, i) => (
+              <FeatureRow
+                key={f.num}
+                feature={f}
+                reverse={i % 2 === 1}
+                priority={i === 0}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-
-      {openVisual && (
-        <Lightbox visual={openVisual} onClose={() => setOpenVisual(null)} />
-      )}
-    </section>
+      </section>
+    </LightboxProvider>
   );
 }
 
@@ -291,29 +203,11 @@ function FeatureRow({
   feature,
   reverse,
   priority = false,
-  onOpen,
 }: {
   feature: Feature;
   reverse: boolean;
   priority?: boolean;
-  onOpen: () => void;
 }) {
-  const visual =
-    feature.visual.type === "mobile" ? (
-      <MobileShot
-        src={feature.visual.src}
-        alt={feature.visual.alt}
-        onClick={onOpen}
-      />
-    ) : (
-      <Screenshot
-        src={feature.visual.src}
-        alt={feature.visual.alt}
-        onClick={onOpen}
-        priority={priority}
-      />
-    );
-
   return (
     <article
       className={`grid items-center gap-10 pb-20 last:pb-0 md:gap-20 md:pb-[120px] ${
@@ -348,73 +242,8 @@ function FeatureRow({
         </ul>
       </FadeUp>
       <FadeUp delay={160} className={reverse ? "md:order-1" : ""}>
-        {visual}
+        <FeatureScreenshot visual={feature.visual} priority={priority} />
       </FadeUp>
     </article>
-  );
-}
-
-function Lightbox({
-  visual,
-  onClose,
-}: {
-  visual: Visual;
-  onClose: () => void;
-}) {
-  const isMobile = visual.type === "mobile";
-  return (
-    <div
-      role="dialog"
-      aria-modal="true"
-      aria-label={visual.alt}
-      onClick={onClose}
-      className="lightbox-overlay fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm md:p-8"
-    >
-      <button
-        type="button"
-        aria-label="닫기"
-        onClick={onClose}
-        className="absolute right-4 top-4 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 md:right-6 md:top-6 md:h-11 md:w-11"
-      >
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={2}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden
-        >
-          <path d="M18 6 6 18M6 6l12 12" />
-        </svg>
-      </button>
-
-      <div
-        onClick={(e) => e.stopPropagation()}
-        className={`relative ${
-          isMobile
-            ? "max-h-[90vh] w-auto"
-            : "w-full max-w-[1400px]"
-        }`}
-      >
-        <Image
-          src={visual.src}
-          alt={visual.alt}
-          width={isMobile ? 1080 : 2400}
-          height={isMobile ? 2280 : 1500}
-          className={`block ${
-            isMobile
-              ? "h-auto max-h-[90vh] w-auto rounded-[24px]"
-              : "h-auto w-full rounded-xl"
-          }`}
-          style={{
-            boxShadow:
-              "0 30px 60px -20px rgba(0, 0, 0, 0.4), 0 12px 28px -10px rgba(0, 0, 0, 0.2)",
-          }}
-        />
-      </div>
-    </div>
   );
 }
