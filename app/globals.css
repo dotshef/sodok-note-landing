@@ -1,13 +1,5 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: "Pretendard";
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-  src: url("/font/PretendardVariable.woff2") format("woff2-variations");
-}
-
 :root {
   /* Brand */
   --color-brand-primary: #009098;
@@ -68,8 +60,8 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-warning: var(--warning);
   --color-success: var(--success);
-  --font-sans: "Pretendard", -apple-system, system-ui, "Segoe UI", Helvetica,
-    "Apple Color Emoji", Arial, "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-sans: var(--font-pretendard), -apple-system, system-ui, "Segoe UI",
+    Helvetica, "Apple Color Emoji", Arial, "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 html {
