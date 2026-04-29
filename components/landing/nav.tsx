@@ -9,7 +9,7 @@ export function Nav() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-black/5 bg-white/90 backdrop-blur-md backdrop-saturate-150">
-      <div className="mx-auto flex w-full max-w-[1280px] items-center gap-7 px-5 py-3.5 md:px-8">
+      <div className="mx-auto flex w-full max-w-[1280px] items-center gap-3 px-5 py-3.5 md:gap-7 md:px-8">
         <div className="flex flex-1 items-center justify-start">
           <Link
             href="/"
@@ -45,13 +45,13 @@ export function Nav() {
           <button
             type="button"
             onClick={openModal}
-            className="inline-flex cursor-pointer items-center justify-center rounded-md border border-black/10 bg-white px-4 py-2 text-[17px] font-semibold text-foreground transition-colors hover:bg-black/[0.04] active:scale-[0.97]"
+            className="inline-flex shrink-0 cursor-pointer items-center justify-center whitespace-nowrap rounded-md border border-black/10 bg-white px-3 py-2 text-[15px] font-semibold text-foreground transition-colors hover:bg-black/[0.04] active:scale-[0.97] md:px-4 md:text-[17px]"
           >
             문의하기
           </button>
           <a
             href="https://app.sodoknote.com"
-            className="inline-flex items-center justify-center gap-1.5 rounded-md bg-[var(--color-brand-primary)] px-4 py-2 text-[17px] font-semibold text-white transition-colors hover:bg-[var(--color-brand-primary-active)] active:scale-[0.97]"
+            className="inline-flex shrink-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-md bg-[var(--color-brand-primary)] px-3 py-2 text-[15px] font-semibold text-white transition-colors hover:bg-[var(--color-brand-primary-active)] active:scale-[0.97] md:px-4 md:text-[17px]"
           >
             콘솔로 이동
           </a>
